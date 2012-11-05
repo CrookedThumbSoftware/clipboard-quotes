@@ -3,6 +3,7 @@
  * @Author Frank (Frank@CrookedThumbSoftware.com)
  * @date   November 2012
  * @brief  Will read the default (or specified) quote file, select a random line, and copy it to the clipboard.
+ * Copyright (c) 2012, Crooked Thumb Software, All rights reserved.
  *
  * Uses LineNumberReader to read the file, stores all lines in memory in an ArrayList.
  * If memory is more of an issue than speed, we could read the file once to get the line count, then a second
@@ -67,7 +68,7 @@ public final class ClipboardQuotes implements ClipboardOwner
     }
 
     /**
-     * Empty implementation of the ClipboardOwner interface.
+     * Empty implementation inherited from the ClipboardOwner interface.
      */
     public void lostOwnership (Clipboard aClipboard, Transferable aContents)
     {
@@ -106,7 +107,7 @@ public final class ClipboardQuotes implements ClipboardOwner
             ex.printStackTrace ();
         } finally
         {
-            // Close the BufferedWriter
+            // Close the file, if it's open
             try
             {
                 // If it was correctly allocated, close it
