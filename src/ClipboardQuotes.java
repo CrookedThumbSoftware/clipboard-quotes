@@ -60,7 +60,7 @@ public final class ClipboardQuotes implements ClipboardOwner
 
         if (!quoteInstance.readQuoteFile (quoteFile))
         {
-            System.err.println ("Quote file '" + quoteFile + "' is not available.");
+            System.err.println ("Quote file '" + quoteFile + "' is not a valid quote file.");
             System.exit (1);
         }
         int line = quoteInstance.pickRandomQuote ();
@@ -97,11 +97,18 @@ public final class ClipboardQuotes implements ClipboardOwner
                 // Stuff the line in the dynamically-sized list
                 m_quoteList.add (line);
             }
+            
             // Finished reading the file, we can return okay
-            retFileRead = true;
+            if (!m_quoteList.isEmpty ())
+            {
+                retFileRead = true;
+            } else {
+                System.err.println ("Quote file is empty.");
+            }
         } catch (FileNotFoundException ex)
         {
             // This is an expected exception if the file isn't found
+            System.err.println ("Quote file is not found.");
         } catch (IOException ex)
         {
             ex.printStackTrace ();
