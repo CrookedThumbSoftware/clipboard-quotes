@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# @file   ClipboardQuotes.cpp
+# @file   clipboard-quotes.sh
 # @Author Frank (Frank@CrookedThumbSoftware.com)
 # @date   November 2012
 # @brief  Will read the default (or specified) quote file, select a random line, and copy it to the clipboard.
